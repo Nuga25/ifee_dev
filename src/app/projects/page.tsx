@@ -22,7 +22,7 @@ const ProjectsPage = () => {
       caption: "Internship Completion Certification from CIL",
     },
     {
-      src: "/images/to-come.jpg",
+      src: "/images/altschool_certificate.jpg",
       caption: "Frontend Engineering Certification from Altschool Africa",
     },
   ];

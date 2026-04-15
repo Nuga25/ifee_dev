@@ -292,7 +292,7 @@ export default function Home() {
             >
               ifee.xoxo
             </a>
-            . Copyright &copy; 2025
+            . Copyright &copy; {new Date().getFullYear()}
           </small>
         </footer>
 
