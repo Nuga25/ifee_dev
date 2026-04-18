@@ -82,7 +82,7 @@ export default function LoadingScreen() {
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white">
               <span className="text-purple-500">{"<"}</span>
-              ifee_xoxo
+              ifee_dev
               <span className="text-purple-500">{"/>"}</span>
             </h1>
           </motion.div>
