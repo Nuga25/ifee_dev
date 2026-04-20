@@ -63,7 +63,7 @@ const aboutPage = () => {
             </span>
           </h2>
           <p className="text-center sm:text-left text-[1rem] pt-5">
-            Hi! I&apos;m Ifeoluwa Osinuga, a final-year Computer Science student
+            Hi! I&apos;m Ifeoluwa Osinuga, a Frontend Engineer with a background in Computer Science
             passionate about building responsive, user-friendly applications. My
             core stack includes Next.js, React, TypeScript, and Tailwind CSS.{" "}
             <br />I am driven by curiosity and a commitment to continuous
@@ -71,7 +71,7 @@ const aboutPage = () => {
             performance and user experience. I am eager to learn, work with
             others, and create meaningful technology while staying curious and
             having fun. <br /> Outside of coding, you would probably find me
-            scrolling through social media or watching K-dramas.
+            reading a book or watching K-dramas.
           </p>
         </div>
         <div className="flex-1 flex justify-center sm:mt-6 mt-10 relative">
