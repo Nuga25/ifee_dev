@@ -77,8 +77,8 @@ export default function Home() {
   // function to download CV
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/files/ifeoluwa-osinuga-CV.pdf";
-    link.download = "Ifeoluwa-Osinuga-CV.pdf";
+    link.href = "/files/001-Ifeoluwa-Osinuga-CV.pdf";
+    link.download = "001-Ifeoluwa-Osinuga-CV.pdf";
     link.click();
   };
 
