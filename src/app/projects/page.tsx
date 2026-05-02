@@ -111,7 +111,7 @@ const ProjectsPage = () => {
                   />
                   <ProjectCard
                     title="Interneefy"
-                    subtitle="An internship management system I built for my SIWES project-- designed to streamline the internship process for organizations."
+                    subtitle="An internship management system designed to streamline the internship process for organizations."
                     thumbnail="/images/interneefy.png"
                     stack="Next.js · React.js · TypeScript · Tailwind CSS · Node.js · PostgreSQL · Prisma "
                     liveUrl="https://interneefy-frontend.vercel.app/"
