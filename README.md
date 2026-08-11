@@ -1,7 +1,7 @@
 # Ifeoluwa Osinuga — Portfolio Website
 
 This repository contains the source code for my personal portfolio website, live at:  
-🔗 https://ifee-xoxo.vercel.app
+🔗 https://ifee-dev.vercel.app
 
 The portfolio showcases my projects, skills, and experience as a Frontend Engineer, and includes an **AI-powered RAG (Retrieval-Augmented Generation) chatbot** as an interactive feature.
 
