@@ -179,7 +179,7 @@ const ContactPage = () => {
             )}
           </form>
 
-          <div className="flex-1 flex flex-col items-center justify-between text-center text-[14px]">
+          {/* <div className="flex-1 flex flex-col items-center justify-between text-center text-[14px]">
             <Image
               src="/animations/miku.gif"
               alt="dancing gif"
@@ -188,7 +188,7 @@ const ContactPage = () => {
               className="w-[240px] h-[250px] md:h-[350px]"
             />
             <p>Thank you for visiting my website!!!</p>
-          </div>
+          </div> */}
         </div>
 
         {/* socials */}
