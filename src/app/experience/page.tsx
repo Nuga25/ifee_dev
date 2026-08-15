@@ -39,7 +39,7 @@ const experiencePage = () => {
             April 2025 — September 2025 · 6 months
           </p>
 
-          <p className="mt-4 text-gray-200 leading-8 text-[17px] max-w-2xl">
+          <p className="mt-4 text-gray-200 leading-8 text-[14px] sm:text-[17px] max-w-2xl">
              I worked as an
             intern at Cecure Intelligence Limited in the Engineering Department.
             I rotated through four main domains: <strong>Frontend engineering, Design

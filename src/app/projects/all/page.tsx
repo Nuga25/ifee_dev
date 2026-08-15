@@ -7,34 +7,6 @@ import Link from "next/link";
 
 const allProjects = [
   {
-    title: "Portfolio Website",
-    subtitle:
-      "A personal portfolio website to showcase my projects and skills.",
-    thumbnail: "/images/portfolio-project.png",
-    stack: "Next.js · TypeScript · Tailwind ",
-    liveUrl: "https://ifee-xoxo.vercel.app/",
-    githubUrl: "https://github.com/Nuga25/ifee_xoxo",
-  },
-  {
-    title: "Interneefy",
-    subtitle:
-      "An internship management system I built for my SIWES project-- designed to streamline the internship process for organizations.",
-    thumbnail: "/images/interneefy.png",
-    stack:
-      "Next.js · React.js · TypeScript · Tailwind CSS · Node.js · PostgreSQL · Prisma ",
-    liveUrl: "https://interneefy-frontend.vercel.app/",
-    githubUrl: "https://github.com/Nuga25/interneefy-frontend",
-  },
-  {
-    title: "Tic Tac Toe",
-    subtitle:
-      "This is a simple implementation of the classic Tic-Tac-Toe game. A project from TOP(The Odin Project).",
-    thumbnail: "/images/tic-tac-toe.png",
-    stack: "HTML · CSS · JavaScript ",
-    liveUrl: "https://nuga25.github.io/Tic-Tac-Toe/",
-    githubUrl: "https://github.com/Nuga25/Tic-Tac-Toe",
-  },
-  {
     title: "Space Tourism Website",
     subtitle:
       "A frontend mentor challenge--responsive space tourism website that provides information about space travel and related services.",
@@ -71,15 +43,6 @@ const allProjects = [
     githubUrl: "https://github.com/Nuga25/loan-dashboard",
   },
   {
-    title: "Todo List",
-    subtitle:
-      "A simple and intuitive todo list application to help users manage their tasks effectively.",
-    thumbnail: "/images/todo-list.png",
-    stack: "HTML · CSS · JavaScript · localStorage",
-    liveUrl: "https://nuga25.github.io/Todo-List/",
-    githubUrl: "https://github.com/Nuga25/Todo-List",
-  },
-  {
     title: "E-commerce Product Page",
     subtitle:
       "A responsive e-commerce product page that displays product details. A challenge by Frontend Mentor.",
@@ -87,6 +50,24 @@ const allProjects = [
     stack: "React.js · Tailwind CSS · TypeScript ",
     liveUrl: "https://e-commerce-product-page-gray-gamma.vercel.app/",
     githubUrl: "https://github.com/Nuga25/E-commerce-product-page",
+  },
+   {
+    title: "Tic Tac Toe",
+    subtitle:
+      "This is a simple implementation of the classic Tic-Tac-Toe game. A project from TOP(The Odin Project).",
+    thumbnail: "/images/tic-tac-toe.png",
+    stack: "HTML · CSS · JavaScript ",
+    liveUrl: "https://nuga25.github.io/Tic-Tac-Toe/",
+    githubUrl: "https://github.com/Nuga25/Tic-Tac-Toe",
+  },
+  {
+    title: "Todo List",
+    subtitle:
+      "A simple and intuitive todo list application to help users manage their tasks effectively.",
+    thumbnail: "/images/todo-list.png",
+    stack: "HTML · CSS · JavaScript · localStorage",
+    liveUrl: "https://nuga25.github.io/Todo-List/",
+    githubUrl: "https://github.com/Nuga25/Todo-List",
   },
 ];
 

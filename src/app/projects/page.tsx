@@ -3,29 +3,152 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import ProjectCard from "@/components/ProjectCard";
 import Carousel from "@/components/Carousel";
 import { motion, AnimatePresence } from "framer-motion";
+
+type Project = {
+  title: string;
+  subtitle: string;
+  thumbnail?: string;
+  screenshots?: { src: string; caption?: string }[];
+  stack: string;
+  liveUrl?: string;
+  githubUrl: string;
+  isMobile?: boolean;
+};
+
+const featuredProjects: Project[] = [
+  {
+    title: "Interneefy",
+    subtitle:
+      "An internship management system designed to streamline the internship process for organizations from onboarding to evaluation.",
+    thumbnail: "/images/interneefy.png",
+    stack:
+      "Next.js · React.js · TypeScript · Tailwind CSS · Node.js · PostgreSQL · Prisma",
+    liveUrl: "https://interneefy-frontend.vercel.app/",
+    githubUrl: "https://github.com/Nuga25/interneefy-frontend",
+  },
+  {
+    title: "ExamPulse",
+    subtitle:
+      "A mobile-based exam notification and scheduling system built with React Native and Firebase, featuring AI-powered course parsing via the Gemini API to auto-generate schedules, push notifications for exam reminders, and a Next.js admin dashboard for managing courses.",
+    screenshots: [
+      { src: "/images/exampulse.png", caption: "Home screen" },
+      { src: "/images/exampulse.png", caption: "Exam schedule" },
+      { src: "/images/exampulse.png", caption: "Notifications" },
+    ],
+    stack: "Expo · React Native · Firebase · Gemini AI · Next.js",
+    githubUrl: "https://github.com/Nuga25/exampulse",
+    isMobile: true,
+  },
+  {
+    title: "Portfolio Website",
+    subtitle:
+      "A personal portfolio website built with Next.js, TypeScript, and Tailwind CSS to showcase my projects and skills, with custom animations and a fully responsive layout across devices.",
+    thumbnail: "/images/portfolio-project.png",
+    stack: "Next.js · TypeScript · Tailwind",
+    liveUrl: "https://ifee-xoxo.vercel.app/",
+    githubUrl: "https://github.com/Nuga25/ifee_xoxo",
+  },
+];
+
+const achievements = [
+  {
+    src: "/images/upskill.jpg",
+    caption: "One of the winners of Upskill with Cardtonic 3.0",
+  },
+  {
+    src: "/images/cil-certificate.jpg",
+    caption: "Internship Completion Certification from CIL",
+  },
+  {
+    src: "/images/altschool_certificate.jpg",
+    caption: "Frontend Engineering Certification from Altschool Africa",
+  },
+];
+
+function ProjectRow({ project, index }: { project: Project; index: number }) {
+  const reversed = index % 2 === 1;
+
+  return (
+    <div
+      className={`flex flex-col ${
+        reversed ? "lg:flex-row-reverse" : "lg:flex-row"
+      } items-center gap-8 lg:gap-14 py-12 border-b border-gray-700/40 last:border-none`}
+    >
+     {/* Image */}
+      <div className="w-full lg:w-1/2 flex justify-center">
+        {project.isMobile && project.screenshots ? (
+          <div className="w-full max-w-[230px]">
+            <Carousel
+              slides={project.screenshots}
+              autoPlay
+              autoPlayInterval={4000}
+              showIndicators
+              showArrows
+              variant="portrait"
+            />
+          </div>
+        ) : (
+          <div className="relative w-full rounded overflow-hidden border border-gray-700/60 shadow-[0_0_20px_#C778DD22] hover:shadow-[0_0_30px_#C778DD33] transition-all duration-300">
+            <Image
+              src={project.thumbnail!}
+              alt={`${project.title} thumbnail`}
+              width={640}
+              height={400}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        )}
+      </div>
+
+      {/* Text */}
+      <div
+        className={`w-full lg:w-1/2 text-center ${
+          reversed ? "lg:text-right" : "lg:text-left"
+        }`}
+      >
+        <h3 className="font-bold text-white text-[22px] sm:text-[28px] mb-3">
+          {project.title}
+        </h3>
+        <p className="text-my-primary text-[13px] tracking-wide mb-2">
+          {project.stack}
+        </p>
+        <p className="text-gray-300 text-[14px] sm:text-[15px] leading-relaxed">
+          {project.subtitle}
+        </p>
+
+        <div
+          className={`flex gap-3 mt-6 justify-center ${
+            reversed ? "lg:justify-end" : "lg:justify-start"
+          }`}
+        >
+          
+          <a  href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-full border border-gray-700/60 text-white text-[13px] font-semibold hover:border-my-primary transition-all"
+          >
+            Live ↔
+          </a>
+          
+          <a  href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-full border border-gray-700/60 text-white text-[13px] font-semibold hover:border-my-primary transition-all"
+          >
+            Github &gt;
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const ProjectsPage = () => {
   const [activeTab, setActiveTab] = useState<"projects" | "achievements">(
     "projects"
   );
-
-  const achievements = [
-    {
-      src: "/images/upskill.jpg",
-      caption: "One of the winners of Upskill with Cardtonic 3.0",
-    },
-    {
-      src: "/images/cil-certificate.jpg",
-      caption: "Internship Completion Certification from CIL",
-    },
-    {
-      src: "/images/altschool_certificate.jpg",
-      caption: "Frontend Engineering Certification from Altschool Africa",
-    },
-  ];
 
   return (
     <section
@@ -70,7 +193,7 @@ const ProjectsPage = () => {
             ${
               activeTab === "projects"
                 ? "bg-[#2b2035] border-[#C778DD] shadow-[0_0_20px_#C778DD33]"
-                : "border-gray-700/60 hover:border-gray-500"
+                : "border-gray-700 hover:border-gray-500"
             }`}
           >
             {`{ Projects }`}
@@ -82,7 +205,7 @@ const ProjectsPage = () => {
             ${
               activeTab === "achievements"
                 ? "bg-[#2b2035] border-[#C778DD] shadow-[0_0_20px_#C778DD33]"
-                : "border-gray-700/60 hover:border-gray-500"
+                : "border-gray-700 hover:border-gray-500"
             }`}
           >
             {`{ Achievements }`}
@@ -100,31 +223,14 @@ const ProjectsPage = () => {
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.45, ease: "easeInOut" }}
               >
-                <div className="flex flex-nowrap gap-6 justify-between items-start w-full flex-col sm:flex-row">
-                  <ProjectCard
-                    title="Portfolio Website"
-                    subtitle="A personal portfolio website to showcase my projects and skills."
-                    thumbnail="/images/portfolio-project.png"
-                    stack="Next.js · TypeScript · Tailwind "
-                    liveUrl="https://ifee-xoxo.vercel.app/"
-                    githubUrl="https://github.com/Nuga25/ifee_xoxo"
-                  />
-                  <ProjectCard
-                    title="Interneefy"
-                    subtitle="An internship management system designed to streamline the internship process for organizations."
-                    thumbnail="/images/interneefy.png"
-                    stack="Next.js · React.js · TypeScript · Tailwind CSS · Node.js · PostgreSQL · Prisma "
-                    liveUrl="https://interneefy-frontend.vercel.app/"
-                    githubUrl="https://github.com/Nuga25/interneefy-frontend"
-                  />
-                  <ProjectCard
-                    title="Tic Tac Toe"
-                    subtitle="This is a simple implementation of the classic Tic-Tac-Toe game. A project from TOP(The Odin Project)."
-                    thumbnail="/images/tic-tac-toe.png"
-                    stack="HTML · CSS · JavaScript "
-                    liveUrl="https://nuga25.github.io/Tic-Tac-Toe/"
-                    githubUrl="https://github.com/Nuga25/Tic-Tac-Toe"
-                  />
+                <div className="flex flex-col">
+                  {featuredProjects.map((project, index) => (
+                    <ProjectRow
+                      key={project.title}
+                      project={project}
+                      index={index}
+                    />
+                  ))}
                 </div>
 
                 <p className="flex justify-end my-10 lg:mr-10">
@@ -154,7 +260,7 @@ const ProjectsPage = () => {
               >
                 <div className="w-full lg:w-[85%] max-w-4xl">
                   <p className="text-center mx-auto mb-10 font-semibold text-[14px] sm:text-md">
-                    Acievements / Certifications
+                    Achievements / Certifications
                   </p>
                   <Carousel
                     slides={achievements}

@@ -15,6 +15,7 @@ type Props = {
   autoPlayInterval?: number;
   showIndicators?: boolean;
   showArrows?: boolean;
+  variant?: "landscape" | "portrait";
 };
 
 export default function Carousel({
@@ -23,6 +24,7 @@ export default function Carousel({
   autoPlayInterval = 3000,
   showIndicators = true,
   showArrows = true,
+  variant = "landscape",
 }: Props) {
   const [[page, direction], setPage] = useState<[number, number]>([0, 0]);
   const imageIndex = ((page % slides.length) + slides.length) % slides.length;
@@ -83,7 +85,11 @@ export default function Carousel({
   return (
     <div className="relative w-full select-none">
       <div
-        className="relative w-full h-[180px] sm:h-[450px] overflow-hidden rounded-md"
+        className={`relative w-full overflow-hidden rounded-md ${
+          variant === "portrait"
+            ? "aspect-[9/19] max-w-[300px] mx-auto"
+            : "h-[180px] sm:h-[450px]"
+        }`}
         onMouseEnter={() => {
           isPaused.current = true;
           stopAutoPlay();
@@ -118,12 +124,14 @@ export default function Carousel({
               src={slides[imageIndex].src}
               alt={`slide-${imageIndex}`}
               fill
-              className="object-fit w-full h-full bg-my-primary"
+              className={`w-full h-full bg-my-primary ${
+                variant === "portrait" ? "object-contain" : "object-cover"
+              }`}
               priority
             />
 
-            {/* Caption */}
-            {slides[imageIndex].caption && (
+            {/* Caption only overlays for landscape */}
+            {variant === "landscape" && slides[imageIndex].caption && (
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/10 backdrop-blur-[2px] text-white w-[90%] px-2 py-1 md:px-4 md:py-2 rounded-md text-[7px] md:text-sm text-center">
                 {slides[imageIndex].caption}
               </div>
@@ -131,6 +139,13 @@ export default function Carousel({
           </motion.div>
         </AnimatePresence>
       </div>
+
+      {/* Caption below the frame for portrait */}
+      {variant === "portrait" && slides[imageIndex].caption && (
+        <p className="text-center text-gray-300 text-[12px] mt-3">
+          {slides[imageIndex].caption}
+        </p>
+      )}
 
       {/* Arrows */}
       {showArrows && (
@@ -141,7 +156,11 @@ export default function Carousel({
               paginate(-1);
               startAutoPlay();
             }}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/50 text-white rounded-full w-9 h-9 flex items-center justify-center"
+            className={`absolute -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all ${
+              variant === "portrait"
+                ? "left-[-14px] top-1/2 w-7 h-7 text-sm"
+                : "left-2 top-1/2 w-9 h-9"
+            }`}
           >
             ‹
           </button>
@@ -151,7 +170,11 @@ export default function Carousel({
               paginate(1);
               startAutoPlay();
             }}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/50 text-white rounded-full w-9 h-9 flex items-center justify-center"
+            className={`absolute -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all ${
+              variant === "portrait"
+                ? "right-[-14px] top-1/2 w-7 h-7 text-sm"
+                : "right-2 top-1/2 w-9 h-9"
+            }`}
           >
             ›
           </button>
@@ -160,7 +183,13 @@ export default function Carousel({
 
       {/* Indicators */}
       {showIndicators && (
-        <div className="flex gap-2 absolute bottom-3 left-1/2 -translate-x-1/2 z-20">
+        <div
+          className={`flex gap-2 left-1/2 -translate-x-1/2 z-20 ${
+            variant === "portrait"
+              ? "relative mt-3 justify-center"
+              : "absolute bottom-3"
+          }`}
+        >
           {slides.map((_, i) => (
             <button
               key={i}

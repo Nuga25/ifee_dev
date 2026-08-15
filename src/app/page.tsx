@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import FloatingRobot from "@/components/FloatingRobot";
 import AboutPage from "@/app/about/page";
 import Image from "next/image";
@@ -187,7 +187,7 @@ export default function Home() {
             className="relative min-h-[100vh] flex flex-col justify-between lg:gap-0 md:gap-[270px] gap-[230px]"
             id="home"
           >
-            <div className="flex flex-col justify-center items-center text-center mt-[35vh] px-4">
+            <div className="flex flex-col justify-center items-center text-center mt-[22vh] sm:mt-[35vh] px-4">
               <h1 className="font-fira-code font-bold text-[26px] sm:text-[38px] md:text-[46px] mb-2">
                 Hi! I&apos;m <span className="text-my-primary">Ifeoluwa Osinuga</span>,
               </h1>
