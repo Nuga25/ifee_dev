@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
-import { Fira_Code } from "next/font/google";
+import { Fira_Code, Manrope } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import LoadingScreen from "@/components/LoadingScreen";
 
-const firaCode = Fira_Code({ subsets: ["latin"], weight: ["300", "700"] });
+const firaCode = Fira_Code({ 
+  subsets: ["latin"], 
+  weight: ["300", "700"],
+  variable: "--font-fira-code"
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-manrope",
+});
 
 export const metadata: Metadata = {
   title: "Ifeoluwa Osinuga | Frontend Engineer",
@@ -44,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${firaCode.variable} ${manrope.variable}`}>
       <head>
         <meta
           name="google-site-verification"
@@ -72,7 +82,7 @@ export default function RootLayout({
         />
         ;
       </head>
-      <body className={firaCode.className}>
+      <body className={manrope.className}>
         <LoadingScreen />
         {children}
         <Analytics />
