@@ -191,7 +191,7 @@ export default function Home() {
               <h1 className="font-fira-code font-bold text-[26px] sm:text-[38px] md:text-[46px] mb-2">
                 Hi! I&apos;m <span className="text-my-primary">Ifeoluwa Osinuga</span>,
               </h1>
-              <h2 className="font-medium text-[20px] sm:text-[26px] md:text-[34px] leading-tight italic">
+              <h2 className="font-medium text-[20px] sm:text-[26px] md:text-[34px] leading-tight">
                 Software Engineer
               </h2>
 

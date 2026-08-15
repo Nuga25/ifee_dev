@@ -74,7 +74,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
     <div
       className={`flex flex-col ${
         reversed ? "lg:flex-row-reverse" : "lg:flex-row"
-      } items-center gap-8 lg:gap-14 py-12 border-b border-gray-700/40 last:border-none`}
+      } items-center gap-8 lg:gap-14 py-12 border-b border-gray-700/60 last:border-none`}
     >
      {/* Image */}
       <div className="w-full lg:w-1/2 flex justify-center">

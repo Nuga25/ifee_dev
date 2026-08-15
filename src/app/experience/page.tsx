@@ -28,7 +28,7 @@ const experiencePage = () => {
           <div className="absolute left-[10px] md:left-[18px] top-1 w-3 h-3 bg-my-primary rounded-full shadow-[0_0_10px_#c779dd]"></div>
           <p className="text-sm font-semibold text-gray-300 mb-2">2025</p>
 
-          <h3 className="text-xl font-semibold">Software Engineering Intern</h3>
+          <h3 className="text-xl font-semibold">Software Engineer Intern</h3>
           <p className="text-my-primary font-medium mt-1">
             <a href="https://cecureintel.com" target="_blank">
               Cecure Intelligence Limited
