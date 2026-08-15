@@ -2,12 +2,12 @@
   {
     "id": "about",
     "title": "About Me",
-    "content": "Ifeoluwa Osinuga is a First Class Computer Science gradutae who enjoys building responsive, user-friendly applications using Next.js, React, TypeScript, and Tailwind CSS. She is fascinated by how technology solves real-world problems and enjoys exploring new tools that push her creativity further. Outside of coding, she loves scrolling through social media or watching Kdramas. She is just that girl!"
+    "content": "Ifeoluwa Osinuga is a First Class Computer Science graduate who enjoys building responsive, user-friendly applications using Next.js, React, TypeScript, and Tailwind CSS. She is fascinated by how technology solves real-world problems and enjoys exploring new tools that push her creativity further. Outside of coding, she loves scrolling through social media or watching Kdramas. She is just that girl!"
   },
   {
     "id": "skills",
     "title": "Skills",
-    "content": "React.js, Next.js, JavaScript, TypeScript, Tailwind CSS, HTML, CSS, Git, GitHub, Figma, AWS basics including EC2, Amplify, Cognito, VPC, S3, PostgreSQL, Terraform."
+    "content": "Frontend skills: React.js, Next.js, JavaScript, TypeScript, Tailwind CSS, HTML, CSS. Backend and cloud: PostgreSQL, AWS basics including EC2, Amplify, Cognito, VPC, S3, Terraform. Tools: Git, GitHub, Figma. She has fullstack and cloud exposure from real production work during her internship."
   },
   {
     "id": "education",
@@ -28,6 +28,11 @@
     "id": "project_interneefy",
     "title": "Interneefy – Internship Management System",
     "content": "Interneefy is a full-stack internship management system built as my SIWES project. It streamlines the internship lifecycle for organizations, offering dashboards for admins, supervisors, and interns. Users can register, assign and track tasks, submit reports, and monitor performance. Designed with scalability, clarity, and real-world usability in mind. Built with Next.js, React.js, TypeScript, Tailwind CSS, Node.js, PostgreSQL, and Prisma ORM."
+  },
+  {
+    "id": "project_exampulse",
+    "title": "ExamPulse – Exam Notification and Scheduling System",
+    "content": "ExamPulse is a mobile-based exam notification and scheduling system built as my final year project. It uses AI-powered course parsing via the Gemini API to automatically generate exam schedules, sends push notifications and automated reminders to students, and includes a Next.js admin dashboard for managing courses and schedules. Built with React Native, Expo, Firebase, Gemini AI, and Next.js."
   },
   {
     "id": "project_tictactoe",
@@ -87,8 +92,8 @@
   {
     "id": "contact",
     "title": "Contact & Socials",
-    "content": "You can reach me through my portfolio or social platforms. I am open to collaborations, voluntary and paid opportunities, and frontend-focused roles.",
-    "email": "osinuaifeoluwa1@gmail.com",
+    "content": "You can reach me through my portfolio or social platforms. I am open to entry-level and internship software engineering roles, remote or Lagos hybrid. Open to collaborations and both voluntary and paid opportunities.",
+    "email": "osinugaifeoluwa1@gmail.com",
     "github": "https://github.com/Nuga25",
     "linkedin": "https://www.linkedin.com/in/osinugaifeoluwa",
     "portfolio": "https://ifee-xoxo.vercel.app/"

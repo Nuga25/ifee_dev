@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
 
 interface Message {
   sender: "user" | "bot";
@@ -14,7 +15,6 @@ export default function RagChat() {
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll to bottom when messages update
   useEffect(() => {
     scrollRef.current?.scrollTo({
       top: scrollRef.current.scrollHeight,
@@ -25,14 +25,12 @@ export default function RagChat() {
   async function sendMessage() {
     if (!input.trim()) return;
 
-    // Add user message
     setMessages((prev) => [...prev, { sender: "user", text: input }]);
 
     const userQuery = input;
     setInput("");
     setLoading(true);
 
-    // Adds an empty bot message that updates as streaming happens
     setMessages((prev) => [...prev, { sender: "bot", text: "" }]);
 
     try {
@@ -48,11 +46,9 @@ export default function RagChat() {
         throw new Error("Failed to fetch");
       }
 
-      // Check if response is streaming or JSON
       const contentType = res.headers.get("content-type");
 
       if (contentType?.includes("text/plain")) {
-        // Handle streaming response
         const reader = res.body?.getReader();
         const decoder = new TextDecoder();
 
@@ -70,7 +66,6 @@ export default function RagChat() {
           const chunk = decoder.decode(value, { stream: true });
           accumulatedText += chunk;
 
-          // Update the last message (bot message) with accumulated text
           setMessages((prev) => {
             const newMessages = [...prev];
             newMessages[newMessages.length - 1] = {
@@ -81,7 +76,6 @@ export default function RagChat() {
           });
         }
       } else {
-        // Handle JSON response (fallback for errors)
         const data = await res.json();
         setMessages((prev) => {
           const newMessages = [...prev];
@@ -129,7 +123,19 @@ export default function RagChat() {
                 : "bg-white/10 border border-white/20"
             }`}
           >
-            {msg.text || (loading && i === messages.length - 1 ? "●" : "")}
+            {msg.sender === "bot" ? (
+              <div
+                className="prose prose-invert prose-sm max-w-none
+                prose-p:my-1 prose-ul:my-1 prose-ol:my-1 prose-li:my-0
+                prose-strong:text-my-primary prose-a:text-my-primary"
+              >
+                <ReactMarkdown>
+                  {msg.text || (loading && i === messages.length - 1 ? "●" : "")}
+                </ReactMarkdown>
+              </div>
+            ) : (
+              msg.text
+            )}
           </div>
         ))}
       </div>
@@ -156,4 +162,3 @@ export default function RagChat() {
     </div>
   );
 }
-

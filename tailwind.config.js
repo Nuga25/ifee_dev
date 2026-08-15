@@ -1,4 +1,5 @@
 import tailwindAnimate from "tailwindcss-animate";
+import typography from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -8,6 +9,8 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["var(--font-inter)"],
+        "fira-code": ["var(--font-fira-code)"],
+        manrope: ["var(--font-manrope)"],
       },
       colors: {
         primary: {
@@ -61,5 +64,5 @@ module.exports = {
       },
     },
   },
-  plugins: [tailwindAnimate],
+  plugins: [typography, tailwindAnimate],
 };

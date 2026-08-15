@@ -135,10 +135,20 @@ export async function POST(req: Request) {
   }
 }
 
-// Find relevant context from your portfolio data
+const STOPWORDS = new Set([
+  "is", "her", "his", "the", "a", "an", "of", "to", "and", "or", "for",
+  "in", "on", "at", "with", "she", "he", "they", "does", "do", "did",
+  "what", "who", "how", "only", "just", "about", "tell", "me", "please",
+]);
+
 function findRelevantContext(query: string): string[] {
   const queryLower = query.toLowerCase();
-  const keywords = queryLower.split(" ");
+
+  // Strip punctuation, split into words, drop stopwords and very short tokens
+  const keywords = queryLower
+    .replace(/[^\w\s]/g, "")
+    .split(" ")
+    .filter((word) => word.length > 2 && !STOPWORDS.has(word));
 
   const typedRagData = ragData as RagDataItem[];
 
@@ -146,29 +156,34 @@ function findRelevantContext(query: string): string[] {
     const contentLower = item.content.toLowerCase();
     const titleLower = item.title.toLowerCase();
 
-    // Count keyword matches
     let score = 0;
     keywords.forEach((keyword) => {
       if (contentLower.includes(keyword)) score += 2;
       if (titleLower.includes(keyword)) score += 3;
     });
 
+    // Boost all project entries when the query is generically about projects
+    if (
+      (queryLower.includes("project") || queryLower.includes("built") || queryLower.includes("app")) &&
+      item.id.startsWith("project_")
+    ) {
+      score += 1;
+    }
+
     return { item, score };
   });
 
-  // Return items with score > 0, sorted by relevance
   return scored
     .filter((s) => s.score > 0)
     .sort((a, b) => b.score - a.score)
-    .slice(0, 3) // Top 3 most relevant
+    .slice(0, 5) // widened from 3 to 5
     .map((s) => `${s.item.title}: ${s.item.content}`);
 }
 
 // Build the prompt for Gemini
 function buildPrompt(query: string, context: string[]): string {
   if (context.length > 0) {
-    // Portfolio-related question
-    return `You are a fun, witty AI assistant for Ifeoluwa Osinuga's portfolio website. You're helpful but not boring - think of yourself as her digital spokesperson with personality!
+    return `You are the AI assistant on Ifeoluwa Osinuga's portfolio website. You answer questions about her background, skills, and projects clearly and confidently — like someone who actually knows her work, not a generic hype bot.
 
 CONTEXT FROM PORTFOLIO:
 ${context.join("\n\n")}
@@ -176,29 +191,24 @@ ${context.join("\n\n")}
 USER QUESTION: ${query}
 
 Instructions:
-- Answer using the context provided, but make it fun and engaging
-- Be conversational with a tiny touch of sass - like talking to a friend who happens to be super knowledgeable
-- You can use light humor, relevant emojis (sparingly!), and a semi-casual tone
-- Keep it professional enough for a portfolio site, but not corporate-boring
-- Refer to Ifeoluwa as "she" or by her name (or just "Ife" if it fits naturally)
-- Keep responses under 100 words unless the question clearly needs more detail
-- If something's impressive, hype it up a bit! Show enthusiasm
+- Answer directly using the context provided. Don't pad with filler or over-the-top enthusiasm.
+- Refer to Ifeoluwa as "she" or by name.
+- Use markdown formatting where it helps readability: **bold** for project/technology names, bullet points for lists of skills or features.
+- Keep responses under 100 words unless the question genuinely needs more detail.
+- If she has a real, notable achievement relevant to the question, mention it plainly — no need to oversell it.
 
 Answer:`;
   } else {
-    // General question (not about portfolio)
-    return `You are a fun, helpful AI assistant living on Ifeoluwa Osinuga's portfolio website and offering to share knowledge about Ifeoluwa or general questions not relating to ifeoluwa by prompting the user to ask whatever they might need to know.
+    return `You are the AI assistant on Ifeoluwa Osinuga's portfolio website. This question isn't about her — answer it directly and helpfully.
 
 USER QUESTION: ${query}
 
 Instructions:
-- This isn't about Ifeoluwa's portfolio, so just answer it like the cool, knowledgeable AI you are
-- Be friendly, and engaging - add personality to your responses
-- You can use light humor and casual language
-- Keep responses under 100 words unless the question needs more
-- If asked about Ifeoluwa and you don't have context, be honest but cool about it: "I don't have that info, but you can explore the site or reach out to her directly!"
+- Answer clearly and concisely, no unnecessary fluff.
+- Use markdown formatting (bold, lists) where it improves readability.
+- Keep responses under 100 words unless the question needs more.
+- If asked about Ifeoluwa and you don't have the info, say so plainly: "I don't have that info, but you can explore the site or reach out to her directly."
 
 Answer:`;
   }
 }
-

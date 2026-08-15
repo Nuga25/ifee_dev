@@ -1,7 +1,7 @@
 export default function sitemap() {
   return [
     {
-      url: "https://ifee-xoxo.vercel.app",
+      url: "https://ifee-dev.vercel.app",
       lastModified: new Date(),
     },
   ];
