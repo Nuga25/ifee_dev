@@ -146,7 +146,7 @@ export default function Home() {
             />
 
             {/* Desktop Links */}
-            <ul className="hidden md:flex gap-3 lg:gap-4 text-white font-semibold text-[14px]">
+            <ul className="hidden lg:flex gap-3 lg:gap-4 text-white font-semibold text-[14px]">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
@@ -165,7 +165,7 @@ export default function Home() {
 
             {/* Hamburger for tablets and below */}
             <button
-              className="md:hidden fixed top-4 right-6 z-50 text-white"
+              className="lg:hidden fixed top-4 right-6 z-50 text-white"
               onClick={() => setIsOpen(!isOpen)}
             >
               <svg
@@ -188,7 +188,7 @@ export default function Home() {
 
             {/* Mobile dropdown */}
             <ul
-              className={`z-50 md:hidden fixed top-16 right-4 w-[92%] bg-bg-dark border border-my-primary/40 backdrop-blur-md rounded-xl p-4 flex flex-col gap-4 text-white font-semibold transition-all duration-300 overflow-hidden ${
+              className={`z-50 lg:hidden fixed top-16 right-4 w-[92%] bg-bg-dark border border-my-primary/40 backdrop-blur-md rounded-xl p-4 flex flex-col gap-4 text-white font-semibold transition-all duration-300 overflow-hidden ${
                 isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
               }`}
             >
