@@ -4,13 +4,18 @@ import Image from "next/image";
 const skills = [
   "React.js",
   "Next.js",
-  "JavaScript",
+  "JavaScript(ES6+)",
   "TypeScript",
   "Tailwind CSS",
-  "HTML",
-  "CSS",
+  "React Native",
+  "Node.js",
+  "HTML5",
+  "CSS3",
+  "PostgreSQL",
+  "Prisma ORM",
   "Git & GitHub",
   "Figma",
+  "AWS",
 ];
 
 const aboutPage = () => {
@@ -49,7 +54,7 @@ const aboutPage = () => {
         className="w-96 h-[0.5px] sm:w-96 mx-auto"
       />
       <div className="flex lg:flex-row flex-col gap-20 justify-between items-center px-5 sm:px-32 w-full">
-        <div className="flex-[1.2]">
+        <div className="flex-[1.3]">
           <h2 className="font-semibold text-[24px] lg:text-[32px] flex items-center mb-6">
             <span className="text-my-primary">#</span>about-me{" "}
             <span className="ml-6">
@@ -62,10 +67,10 @@ const aboutPage = () => {
               />
             </span>
           </h2>
-          <p className="text-center sm:text-left text-[1rem] pt-5">
-            Hi! I&apos;m Ifeoluwa Osinuga, a Frontend Engineer and a First Class Computer Science
+          <p className="text-center sm:text-left text-[1.1rem] pt-5 leading-7">
+            Hi! I&apos;m Ifeoluwa Osinuga, a Frontend focused SoftwareEngineer and a First Class Computer Science
             graduate passionate about building responsive, user-friendly applications. My
-            core stack includes Next.js, React, TypeScript, and Tailwind CSS.{" "}
+            core stack includes Next.js, React, TypeScript, and Tailwind CSS, with fullstack, cloud, AI/ML exposure.{" "}
             <br /><br />I am driven by curiosity and a commitment to continuous
             learning, exploring new technologies and best practices to optimize
             performance and user experience. I am eager to learn, work with

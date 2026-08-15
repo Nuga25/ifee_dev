@@ -9,12 +9,7 @@ import ContactPage from "./contact/page";
 import ExperiencePage from "./experience/page";
 import CustomCursor from "@/components/CustomCursor";
 
-const titles = [
-  "<Software Engineer/>",
-  "<Frontend Engineer/>",
-  "<Web Developer/>",
-  "<Web Designer/>",
-];
+
 
 const navLinks = [
   { href: "/", label: "home" },
@@ -25,10 +20,6 @@ const navLinks = [
 ];
 
 export default function Home() {
-  const [index, setIndex] = useState(0); // current title
-  const [subIndex, setsubIndex] = useState(0); // current letter
-  const [blink, setBlink] = useState(true);
-  const [reverse, setReverse] = useState(false);
   const [isOpen, setIsOpen] = useState(false); // mobile nav state
 
   const handleNavClick = (
@@ -46,33 +37,9 @@ export default function Home() {
     setIsOpen(false); // Close mobile menu
   };
 
-  useEffect(() => {
-    if (index === titles.length) return;
 
-    if (subIndex === titles[index].length + 1 && !reverse) {
-      setTimeout(() => setReverse(true), 1000); //pause at end
-      return;
-    }
 
-    if (subIndex === 0 && reverse) {
-      setTimeout(() => {
-        setReverse(false);
-        setIndex((prev) => (prev + 1) % titles.length); // next title
-      }, 0);
-      return;
-    }
 
-    const timeout = setTimeout(() => {
-      setsubIndex((prev) => prev + (reverse ? -1 : 1));
-    }, 150);
-
-    return () => clearTimeout(timeout);
-  }, [subIndex, index, reverse]);
-
-  useEffect(() => {
-    const blinkInterval = setInterval(() => setBlink((prev) => !prev), 500);
-    return () => clearInterval(blinkInterval);
-  }, []);
 
   // function to download CV
   const handleDownload = () => {
@@ -220,18 +187,38 @@ export default function Home() {
             className="relative min-h-[100vh] flex flex-col justify-between lg:gap-0 md:gap-[270px] gap-[230px]"
             id="home"
           >
-            <div className="flex flex-col justify-center">
-              <div className="text-center mt-[42vh]">
-                <h3 className="font-bold text-[18px] sm:text-[28px] md:text-[30px]">
-                  Hi, I&apos;m{" "}
-                  <span className="text-my-primary">Ifeoluwa Osinuga</span>
-                </h3>
-                <h1 className="font-bold text-[28px] sm:text-[40px] md:text-[50px] mt-5">
-                  {titles[index].substring(0, subIndex)}
-                  <span className="inline-block w-[1ch]">
-                    {blink ? "|" : "|"}
-                  </span>
-                </h1>
+            <div className="flex flex-col justify-center items-center text-center mt-[35vh] px-4">
+              <h1 className="font-fira-code font-bold text-[26px] sm:text-[38px] md:text-[46px] mb-2">
+                Hi! I&apos;m <span className="text-my-primary">Ifeoluwa Osinuga</span>,
+              </h1>
+              <h2 className="font-medium text-[20px] sm:text-[26px] md:text-[34px] leading-tight italic">
+                Software Engineer
+              </h2>
+
+              <p className="font-manrope text-white/80 text-[15px] sm:text-[17px] italic mt-3 leading-tight">
+                Frontend-focused, fullstack-capable.
+              </p>
+
+              <p className="font-manrope text-white/70 text-[15px] sm:text-[16px] max-w-[560px] mt-5 leading-relaxed">
+                I build web apps with React, Next.js, TypeScript, and Tailwind CSS,
+                with fullstack and cloud exposure from real production work.
+              </p>
+
+              <div className="flex gap-4 mt-8">
+                
+                <a  href="#projects"
+                  onClick={(e) => handleNavClick(e, "#projects")}
+                  className="px-5 py-2.5 rounded-full bg-my-primary text-black font-semibold text-[14px] hover:opacity-90 transition-all"
+                >
+                  View Projects
+                </a>
+                
+                <a  href="#contact"
+                  onClick={(e) => handleNavClick(e, "#contact")}
+                  className="px-5 py-2.5 rounded-full border border-white/30 text-white font-semibold text-[14px] hover:bg-white/10 transition-all"
+                >
+                  Contact Me
+                </a>
               </div>
             </div>
 
