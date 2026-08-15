@@ -21,14 +21,14 @@ const experiencePage = () => {
 
       <div className="relative md:px-[73px] overflow-hidden">
         {/* Vertical line */}
-        <div className="absolute left-4 sm:left-24 top-0 bottom-0 w-[2px] bg-white/10 rounded-full"></div>
+        <div className="absolute left-4 md:left-24 top-0 bottom-0 w-[2px] bg-white/10 rounded-full"></div>
 
         <div className="relative pl-12 sm:pl-20 pb-16">
           {/* Circle Marker */}
-          <div className="absolute left-[10px] sm:left-[18px] top-1 w-3 h-3 bg-my-primary rounded-full shadow-[0_0_10px_#c779dd]"></div>
+          <div className="absolute left-[10px] md:left-[18px] top-1 w-3 h-3 bg-my-primary rounded-full shadow-[0_0_10px_#c779dd]"></div>
           <p className="text-sm font-semibold text-gray-300 mb-2">2025</p>
 
-          <h3 className="text-xl font-semibold">Engineering Intern</h3>
+          <h3 className="text-xl font-semibold">Software Engineering Intern</h3>
           <p className="text-my-primary font-medium mt-1">
             <a href="https://cecureintel.com" target="_blank">
               Cecure Intelligence Limited
@@ -39,11 +39,12 @@ const experiencePage = () => {
             April 2025 — September 2025 · 6 months
           </p>
 
-          <p className="mt-4 text-gray-300 leading-relaxed text-[15px] max-w-2xl">
-            During my Student Industrial Work Experience (SIWES), I worked as an
+          <p className="mt-4 text-gray-200 leading-7 text-[16px] max-w-2xl">
+             I worked as an
             intern at Cecure Intelligence Limited in the Engineering Department.
-            I rotated through four main domains: frontend engineering, design
-            engineering, cloud engineering, and machine learning/AI. Under the
+            I rotated through four main domains: <strong>Frontend engineering, Design
+            engineering, Cloud engineering, and Machine Learning/AI.</strong>
+            <br/> Under the
             mentorship of experienced engineers, I expanded my skills and
             knowledge in creating secure, scalable, and user-friendly digital
             solutions. This experience allowed me to actively learn best
