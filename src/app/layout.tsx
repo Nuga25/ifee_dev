@@ -17,9 +17,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Ifeoluwa Osinuga | Frontend Engineer",
+  title: "Ifeoluwa Osinuga | Software Engineer",
   description:
-    "Portfolio of Ifeoluwa Osinuga, a Frontend Engineer skilled in React, Next.js, TypeScript, Tailwind CSS, UI/UX and cloud-based integrations.",
+    "Portfolio of Ifeoluwa Osinuga, a Frontend Focused Software Engineer skilled in React, Next.js, TypeScript, Node.js, Tailwind CSS, UI/UX and cloud-based integrations.",
   metadataBase: new URL("https://ifee-xoxo.vercel.app"),
   keywords: [
     "Ifeoluwa Osinuga",
