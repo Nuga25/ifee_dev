@@ -85,10 +85,10 @@ export default function Carousel({
   return (
     <div className="relative w-full select-none">
       <div
-        className={`relative w-full overflow-hidden rounded-md ${
+        className={`relative w-full overflow-hidden ${
           variant === "portrait"
-            ? "aspect-[9/19] max-w-[300px] mx-auto"
-            : "h-[180px] sm:h-[450px]"
+            ? "aspect-[8.9/18.7] max-w-[240px] mx-auto rounded-[2rem] border-[7px] border-slate-800/80 bg-gradient-to-b from-gray-200 to-gray-400 shadow-[0_0_25px_rgba(0,0,0,0.3)]"
+            : "h-[180px] sm:h-[450px] rounded-md"
         }`}
         onMouseEnter={() => {
           isPaused.current = true;
@@ -99,6 +99,11 @@ export default function Carousel({
           startAutoPlay();
         }}
       >
+        {/* Notch, only for portrait */}
+        {variant === "portrait" && (
+          <div className="absolute top-1 left-1/2 -translate-x-1/2 w-16 h-4 bg-black rounded-full z-20" />
+        )}
+
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={page}
@@ -140,12 +145,13 @@ export default function Carousel({
         </AnimatePresence>
       </div>
 
-      {/* Caption below the frame for portrait */}
+      {/* Caption below the frame for portrait — already outside the frame div now */}
       {variant === "portrait" && slides[imageIndex].caption && (
         <p className="text-center text-gray-300 text-[12px] mt-3">
           {slides[imageIndex].caption}
         </p>
       )}
+
 
       {/* Arrows */}
       {showArrows && (

@@ -82,7 +82,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
      {/* Image */}
       <div className="w-full lg:w-1/2 flex justify-center">
         {project.isMobile && project.screenshots ? (
-          <div className="w-full max-w-[230px]">
+          <div className="w-full max-w-[240px]">
             <Carousel
               slides={project.screenshots}
               autoPlay
