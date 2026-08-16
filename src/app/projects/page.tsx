@@ -33,9 +33,12 @@ const featuredProjects: Project[] = [
     subtitle:
       "A mobile-based exam notification and scheduling system built with React Native and Firebase, featuring AI-powered course parsing via the Gemini API to auto-generate schedules, push notifications for exam reminders, and a Next.js admin dashboard for managing courses.",
     screenshots: [
-      { src: "/images/exampulse.png", caption: "Home screen" },
-      { src: "/images/exampulse.png", caption: "Exam schedule" },
-      { src: "/images/exampulse.png", caption: "Notifications" },
+      { src: "/images/exampulse1.png", caption: "Home screen" },
+      { src: "/images/exampulse2.png", caption: "Login screen" },
+      { src: "/images/exampulse3.png", caption: "Exam schedule screen" },
+      { src: "/images/exampulse4.png", caption: "Exam details screen" },
+      { src: "/images/exampulse5.png", caption: "Notifications screen" },
+      { src: "/images/exampulse6.png", caption: "Profile screen" },
     ],
     stack: "Expo · React Native · Firebase · Gemini AI · Next.js",
     githubUrl: "https://github.com/Nuga25/exampulse",

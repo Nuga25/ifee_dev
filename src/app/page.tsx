@@ -277,7 +277,7 @@ export default function Home() {
               target="_blank"
               className="underline text-my-primary"
             >
-              ifee.xoxo
+              ifee_xoxo
             </a>
             . Copyright &copy; {new Date().getFullYear()}
           </small>

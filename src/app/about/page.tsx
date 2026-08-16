@@ -106,9 +106,11 @@ const aboutPage = () => {
           {/* portfolio picture */}
           <Image
             src="/images/my-picture-1.png"
+            // src="/images/about-img.jpg"
             alt="my portrait"
             width={300}
             height={280}
+            // className="rounded-tl-3xl rounded-br-3xl object-cover w-[300px] sm:w-[400px]"
           />
         </div>
       </div>

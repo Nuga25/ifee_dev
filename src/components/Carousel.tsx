@@ -124,7 +124,7 @@ export default function Carousel({
               src={slides[imageIndex].src}
               alt={`slide-${imageIndex}`}
               fill
-              className={`w-full h-full bg-my-primary ${
+              className={`w-full h-full ${
                 variant === "portrait" ? "object-contain" : "object-cover"
               }`}
               priority
