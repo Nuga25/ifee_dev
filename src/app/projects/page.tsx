@@ -45,7 +45,7 @@ const featuredProjects: Project[] = [
     title: "Portfolio Website",
     subtitle:
       "A personal portfolio website built with Next.js, TypeScript, and Tailwind CSS to showcase my projects and skills, with custom animations and a fully responsive layout across devices.",
-    thumbnail: "/images/portfolio-project.png",
+    thumbnail: "/images/portfolio_thumbnail.png",
     stack: "Next.js · TypeScript · Tailwind",
     liveUrl: "https://ifee-xoxo.vercel.app/",
     githubUrl: "https://github.com/Nuga25/ifee_xoxo",
