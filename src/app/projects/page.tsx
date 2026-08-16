@@ -22,7 +22,7 @@ const featuredProjects: Project[] = [
     title: "Interneefy",
     subtitle:
       "An internship management system designed to streamline the internship process for organizations from onboarding to evaluation.",
-    thumbnail: "/images/interneefy.png",
+    thumbnail: "/images/interneefy-thumbnail.png",
     stack:
       "Next.js · React.js · TypeScript · Tailwind CSS · Node.js · PostgreSQL · Prisma",
     liveUrl: "https://interneefy-frontend.vercel.app/",
@@ -90,7 +90,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
             />
           </div>
         ) : (
-          <div className="relative w-full rounded overflow-hidden border border-gray-700/60 shadow-[0_0_20px_#C778DD22] hover:shadow-[0_0_30px_#C778DD33] transition-all duration-300">
+          <div className="relative w-full rounded overflow-hidden transition-all duration-300">
             <Image
               src={project.thumbnail!}
               alt={`${project.title} thumbnail`}

@@ -105,7 +105,7 @@ export default function Home() {
           <nav className="z-20 fixed top-4 sm:top-6 left-1/2 transform -translate-x-1/2 px-4 sm:px-8 py-3 flex items-center justify-between w-[90%] sm:w-[70%] lg:w-[55%] h-14 sm:h-16 rounded-full border border-white/20 bg-white/1 backdrop-blur-sm font-semibold shadow-[inset_1px_0.5px_2px_rgba(255,255,255,0.9)]">
             {/* Logo */}
             <Image
-              src="/assets/logo.svg"
+              src="/assets/logo1.svg"
               alt="Logo"
               width={35}
               height={35}
