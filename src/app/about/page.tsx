@@ -68,7 +68,7 @@ const aboutPage = () => {
             </span>
           </h2>
           <p className="text-left sm:text-left text-[1.1rem] pt-5 leading-7">
-            Hi! I&apos;m Ifeoluwa Osinuga, a Frontend focused SoftwareEngineer and a First Class Computer Science
+            Hi! I&apos;m Ifeoluwa Osinuga, a Frontend focused Software Engineer and a First Class Computer Science
             graduate passionate about building responsive, user-friendly applications. My
             core stack includes Next.js, React, TypeScript, and Tailwind CSS, with fullstack, cloud, AI/ML exposure.{" "}
             <br /><br />I am driven by curiosity and a commitment to continuous
@@ -80,7 +80,7 @@ const aboutPage = () => {
           </p>
         </div>
         <div className="flex-1 flex justify-center sm:mt-6 mt-10 relative">
-          {/* bg patterns */}
+          {/* // bg patterns 
           <Image
             src="/assets/star.svg"
             alt="star"
@@ -101,18 +101,18 @@ const aboutPage = () => {
             width={0}
             height={0}
             className="-z-10 w-36 h-36 absolute -bottom-5 -left-9 sm:-left-3"
-          />
+          /> */}
 
-          {/* portfolio picture */}
+          {/* // portfolio picture */}
           <Image
-            src="/images/my-picture-1.png"
+            src="/images/about-me.jpg"
             // src="/images/about-img.jpg"
             alt="my portrait"
             width={300}
             height={280}
-            // className="rounded-tl-3xl rounded-br-3xl object-cover w-[300px] sm:w-[400px]"
+            className="rounded-xl h-[500px] object-cover w-[300px] sm:w-[400px]"
           />
-        </div>
+        </div> 
       </div>
 
       <div className="mx-auto w-[95%] sm:w-[75%] px-4 sm:px-8 py-3 sm:py-4 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-sm font-semibold shadow-[inset_1px_1px_2px_rgba(255,255,255,0.4)]">
