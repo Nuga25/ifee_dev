@@ -109,7 +109,7 @@ export default function Home() {
               alt="Logo"
               width={100}
               height={100}
-              className="w-[45px] h-auto sm:w-[105px]"
+              className="w-[75px] h-auto sm:w-[105px]"
             />
 
             {/* Desktop Links */}
