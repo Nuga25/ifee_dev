@@ -45,13 +45,13 @@ const featuredProjects: Project[] = [
     isMobile: true,
   },
   {
-    title: "Portfolio Website",
+    title: "Wavelength Website",
     subtitle:
-      "A personal portfolio website built with Next.js, TypeScript, and Tailwind CSS to showcase my projects and skills, with custom animations and a fully responsive layout across devices.",
-    thumbnail: "/images/portfolio_thumbnail.png",
+      "A responsive marketing site for a fictional creative/media studio — built with Next.js, TypeScript, and Tailwind CSS.",
+    thumbnail: "/images/wavelength.png",
     stack: "Next.js · TypeScript · Tailwind",
-    liveUrl: "https://ifee-xoxo.vercel.app/",
-    githubUrl: "https://github.com/Nuga25/ifee_xoxo",
+    liveUrl: "https://wavelength-media-co.vercel.app/",
+    githubUrl: "https://github.com/Nuga25/Wavelength-Media-Co.",
   },
 ];
 
