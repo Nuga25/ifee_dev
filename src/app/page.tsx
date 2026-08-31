@@ -271,7 +271,7 @@ export default function Home() {
 
         <footer className="text-center py-3 mb-0">
           <small className="text-white text-[10px]">
-            Designed and Coded by{" "}
+            Designed and Coded With 💜 by{" "}
             <a
               href="https://www.linkedin.com/in/osinugaifeoluwa"
               target="_blank"
